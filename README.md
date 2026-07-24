@@ -1,5 +1,7 @@
 # Patrick Tran, MD, FAAD
 
+[![Profile Quality](https://github.com/patricktran1/patricktran1/actions/workflows/profile-quality.yml/badge.svg)](https://github.com/patricktran1/patricktran1/actions/workflows/profile-quality.yml)
+
 Physician-founder building governed clinical AI and agent systems where evidence, safety, accounting controls, operational resilience, and human judgment remain first-class architecture.
 
 ## Flagship systems
@@ -17,7 +19,10 @@ A physician-gated evidence workflow that scans curated dermatology journals, pri
 - deterministic SHA-256 audit manifests chained across substantive workflow events
 - integrity verification catches changed status, altered messages, reordered events, and sequence gaps
 - data-minimized manifest API excludes abstracts, source quotations, learning-card content, and event messages
-- dependency audit, regression suites, coverage, TypeScript, production build, retained browser evidence, and CodeQL
+- reproducible `npm ci` across CI and Playwright from a committed Node 22 lockfile
+- enforced source-only coverage floors of 65% lines, 70% functions, and 75% branches
+- blocking pull-request dependency review with retained evidence, moderate-or-higher audit enforcement, npm-registry provenance, SHA-512 integrity, and explicit license policy
+- CodeQL plus weekly OpenSSF Scorecard publication through OIDC, retained SARIF, and code-scanning upload
 - [Live product](https://agihackathon26dermbrief.vercel.app)
 
 ### [DermPathOS / BiopsyGraph](https://github.com/patricktran1/dermpathos-biopsygraph)
@@ -50,8 +55,9 @@ A dependency-free TypeScript library, installed CLI, and operational service bou
 - production-shaped service with validated tenant configuration, separate liveness and readiness, visible draining, and bounded shutdown
 - multi-stage non-root container image tested through health, readiness, and fail-closed traffic checks
 - OpenAPI 3.1 contract with deterministic drift tests
-- CycloneDX SBOM, dependency audit, coverage, and retained operational artifacts
-- packed-package consumer validation and provenance-enabled npm release workflow
+- reproducible `npm ci` with enforced coverage floors of 90% lines and functions and 85% branches
+- blocking pull-request dependency review with registry, integrity, license, and moderate-or-higher vulnerability policy
+- CycloneDX SBOM, CodeQL, OpenSSF Scorecard, retained operational evidence, and provenance-enabled npm release workflow
 - three claimable [external contributor sprint issues](https://github.com/patricktran1/clinical-ai-tools/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
 ### [AdrianOS](https://github.com/patricktran1/AdrianOS)
@@ -93,17 +99,32 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 
 ## Visible quality matrix
 
-| Repository | Deterministic tests | Coverage | Production or package build | Browser, consumer, or operational validation | CodeQL |
-|---|---:|---:|---:|---:|---:|
-| DermBrief EvidenceOps | ✓ | ✓ | ✓ | physician release + audit integrity | ✓ |
-| DermPathOS / BiopsyGraph | ✓ | ✓ | ✓ | closed-loop melanoma follow-up | ✓ |
-| Clinical Evidence Guardrails | ✓ | ✓ | ✓ | packed API + CLI + load + fault + container | ✓ |
-| AdrianOS | ✓ | ✓ | ✓ | full Playwright matrix | ✓ |
-| HealthThread | ✓ | ✓ | ✓ | normalized event + repository hygiene gates | ✓ |
-| Cantina | ✓ | ✓ | ✓ | production procurement flow | ✓ |
-| Vital Passport | ✓ | ✓ | ✓ | patient-profile regression boundary | ✓ |
-| TagOnce | ✓ | ✓ | ✓ | lint + package production build | ✓ |
-| AION EHR launch site | ✓ | ✓ | syntax-validated deploy surface | waitlist contract | ✓ |
+| Repository | Deterministic tests | Coverage | Production or package build | Browser, consumer, or operational validation | CodeQL | Supply-chain controls |
+|---|---:|---:|---:|---:|---:|---|
+| DermBrief EvidenceOps | ✓ | enforced 65/70/75 | ✓ | physician release + audit integrity | ✓ | dependency review + OpenSSF |
+| DermPathOS / BiopsyGraph | ✓ | ✓ | ✓ | closed-loop melanoma follow-up | ✓ | audit + Dependabot |
+| Clinical Evidence Guardrails | ✓ | enforced 90/90/85 | ✓ | packed API + CLI + load + fault + container | ✓ | dependency review + SBOM + OpenSSF |
+| AdrianOS | ✓ | ✓ | ✓ | full Playwright matrix | ✓ | Dependabot |
+| HealthThread | ✓ | ✓ | ✓ | normalized event + repository hygiene gates | ✓ | audit + Dependabot |
+| Cantina | ✓ | ✓ | ✓ | production procurement flow | ✓ | audit + Dependabot |
+| Vital Passport | ✓ | ✓ | ✓ | patient-profile regression boundary | ✓ | audit + Dependabot |
+| TagOnce | ✓ | ✓ | ✓ | lint + package production build | ✓ | audit + Dependabot |
+| AION EHR launch site | ✓ | ✓ | syntax-validated deploy surface | waitlist contract | ✓ | audit + Dependabot |
+
+## Portfolio automation
+
+The profile repository is validated on every pull request and main-branch push. Its deterministic contract requires the flagship links, visible quality matrix, exact Actions evidence, collaboration boundaries, secure links, and explicit non-claims to remain intact. The workflow retains a machine-readable validation report, and Dependabot maintains pinned GitHub Actions dependencies.
+
+Across the strongest repositories, automation is designed as executable evidence:
+
+- reproducible lockfile installs instead of floating dependency resolution
+- domain-risk regression tests rather than interface-only smoke tests
+- enforced coverage floors where a measured baseline is mature enough to defend
+- production or package builds tested as users receive them
+- retained browser, consumer, dependency, audit, SBOM, and operational artifacts
+- CodeQL and dependency maintenance across maintained products
+- blocking dependency-change review on the open-source library and DermBrief
+- weekly OpenSSF analysis on the repositories with the deepest public supply-chain surface
 
 ## Current focus
 
@@ -135,6 +156,7 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 12. Deployable and distributable artifacts should be tested as consumers receive them.
 13. Command-line tools should expose stable output and exit contracts without leaking source content.
 14. Performance evidence should distinguish deterministic isolation checks from production SLO claims.
+15. Supply-chain policy should be enforced and retained, not implied by a badge.
 
 ## Collaboration
 
