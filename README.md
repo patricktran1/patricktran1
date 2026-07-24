@@ -14,6 +14,9 @@ A physician-gated evidence workflow that scans curated dermatology journals, pri
 - explicit physician release boundary
 - production-build Playwright proof that Publisher remains blocked until physician approval
 - browser assertion that autonomous releases remain zero after approval
+- deterministic SHA-256 audit manifests chained across substantive workflow events
+- integrity verification catches changed status, altered messages, reordered events, and sequence gaps
+- data-minimized manifest API excludes abstracts, source quotations, learning-card content, and event messages
 - dependency audit, regression suites, coverage, TypeScript, production build, retained browser evidence, and CodeQL
 - [Live product](https://agihackathon26dermbrief.vercel.app)
 
@@ -23,7 +26,10 @@ A graph-based biopsy follow-up safety net designed to surface missing patient no
 
 - deterministic melanoma, SCC, BCC, and benign-result triage fixtures
 - Neo4j relationship model for closed-loop follow-up
-- CI, coverage, TypeScript validation, CodeQL, and Dependabot
+- production-build Playwright flow that surfaces an urgent melanoma gap, inspects the graph path, completes the task, and verifies dashboard persistence
+- separate CI-only Nitro Node artifact so browser testing exercises a runnable production server
+- high-severity dependency audit with patched Daytona and OpenTelemetry dependency lines
+- CI, coverage, TypeScript validation, retained browser evidence, CodeQL, and Dependabot
 
 ### [Clinical Evidence Guardrails](https://github.com/patricktran1/clinical-ai-tools)
 
@@ -41,8 +47,11 @@ A dependency-free TypeScript library, installed CLI, and operational service bou
 - deterministic 480-request load harness across twelve isolated tenants
 - fail-closed matrix for authentication, directory, limiter, payload, timeout, and upstream failures
 - runnable Node 22 reference gateway with an HTTP-to-Fetch bridge and cross-tenant isolation self-test
+- production-shaped service with validated tenant configuration, separate liveness and readiness, visible draining, and bounded shutdown
+- multi-stage non-root container image tested through health, readiness, and fail-closed traffic checks
+- OpenAPI 3.1 contract with deterministic drift tests
+- CycloneDX SBOM, dependency audit, coverage, and retained operational artifacts
 - packed-package consumer validation and provenance-enabled npm release workflow
-- dependency audit, coverage, retained operational artifacts, CI, and CodeQL
 - three claimable [external contributor sprint issues](https://github.com/patricktran1/clinical-ai-tools/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
 ### [AdrianOS](https://github.com/patricktran1/AdrianOS)
@@ -75,9 +84,9 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 
 | Repository | Deterministic tests | Coverage | Production or package build | Browser, consumer, or operational validation | CodeQL |
 |---|---:|---:|---:|---:|---:|
-| DermBrief EvidenceOps | ✓ | ✓ | ✓ | physician-release Playwright flow | ✓ |
-| DermPathOS / BiopsyGraph | ✓ | ✓ | ✓ |  | ✓ |
-| Clinical Evidence Guardrails | ✓ | ✓ | ✓ | packed API + installed CLI + load + fault + Node service | ✓ |
+| DermBrief EvidenceOps | ✓ | ✓ | ✓ | physician release + audit integrity | ✓ |
+| DermPathOS / BiopsyGraph | ✓ | ✓ | ✓ | closed-loop melanoma follow-up | ✓ |
+| Clinical Evidence Guardrails | ✓ | ✓ | ✓ | packed API + CLI + load + fault + container | ✓ |
 | AdrianOS | ✓ | ✓ | ✓ | full Playwright matrix | ✓ |
 | Cantina | ✓ | ✓ | ✓ | production procurement flow | ✓ |
 | Vital Passport | ✓ | ✓ | ✓ | patient-profile regression boundary | ✓ |
@@ -92,6 +101,8 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 - human-in-the-loop agent systems
 - multi-tenant API, rate-limit, and observability boundaries
 - deterministic financial and workflow controls
+- container lifecycle, readiness, graceful drain, and supply-chain evidence
+- tamper-evident workflow receipts and data-minimized verification
 - deployable reference services and operational failure drills
 - adoption-ready packages and command-line tooling
 - physician-designed health software
@@ -105,10 +116,13 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 5. Financial writes must be balanced, idempotent, and outside model control.
 6. Tenant identity and authorization boundaries must be explicit.
 7. Dependency outages must produce deterministic, traceable failure contracts.
-8. Tests should encode domain risk, not only interface behavior.
-9. Deployable and distributable artifacts should be tested as consumers receive them.
-10. Command-line tools should expose stable output and exit contracts without leaking source content.
-11. Performance evidence should distinguish deterministic isolation checks from production SLO claims.
+8. Liveness and readiness describe different operational states.
+9. Graceful shutdown should become visible before traffic stops.
+10. Integrity receipts should minimize data while making protected changes detectable.
+11. Tests should encode domain risk, not only interface behavior.
+12. Deployable and distributable artifacts should be tested as consumers receive them.
+13. Command-line tools should expose stable output and exit contracts without leaking source content.
+14. Performance evidence should distinguish deterministic isolation checks from production SLO claims.
 
 ## Collaboration
 
