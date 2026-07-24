@@ -64,6 +64,17 @@ A mastery-based learning system designed around durable understanding rather tha
 
 ## Additional maintained products
 
+### [HealthThread](https://github.com/patricktran1/HealthThread)
+
+A patient-controlled longitudinal health-memory workspace for structured events, imported documents, trends, summaries, and conversational retrieval.
+
+- normal source tree visible to GitHub language analysis, dependency tooling, CodeQL, and reviewers
+- deterministic calendar-date, event-type, field-boundary, tag-deduplication, and document-path tests
+- database values and memory text derived from the same normalized health-event record
+- clean `npm ci`, repository and secret hygiene, zero-warning lint, TypeScript, coverage, and production build
+- patched transitive `brace-expansion` and `js-yaml` dependency lines with a clean high-severity audit
+- retained audit, lint, and coverage artifacts, CodeQL, Dependabot, contributor guidance, and privacy-aware pull request checks
+
 ### [Cantina](https://github.com/patricktran1/cantina)
 
 A simulated procurement, clearing, and settlement network for autonomous agents with deterministic purchasing mandates, delivery verification, idempotent financial writes, balanced double-entry ledger postings, and a hash-chained audit trail.
@@ -88,6 +99,7 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 | DermPathOS / BiopsyGraph | ✓ | ✓ | ✓ | closed-loop melanoma follow-up | ✓ |
 | Clinical Evidence Guardrails | ✓ | ✓ | ✓ | packed API + CLI + load + fault + container | ✓ |
 | AdrianOS | ✓ | ✓ | ✓ | full Playwright matrix | ✓ |
+| HealthThread | ✓ | ✓ | ✓ | normalized event + repository hygiene gates | ✓ |
 | Cantina | ✓ | ✓ | ✓ | production procurement flow | ✓ |
 | Vital Passport | ✓ | ✓ | ✓ | patient-profile regression boundary | ✓ |
 | TagOnce | ✓ | ✓ | ✓ | lint + package production build | ✓ |
