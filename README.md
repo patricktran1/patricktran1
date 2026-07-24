@@ -1,6 +1,6 @@
 # Patrick Tran, MD, FAAD
 
-Physician-founder building governed clinical AI and agent systems where evidence, safety, accounting controls, and human judgment remain first-class architecture.
+Physician-founder building governed clinical AI and agent systems where evidence, safety, accounting controls, operational resilience, and human judgment remain first-class architecture.
 
 ## Flagship systems
 
@@ -12,7 +12,9 @@ A physician-gated evidence workflow that scans curated dermatology journals, pri
 - deterministic quote, mapping, and language vetoes
 - durable evidence and approval history
 - explicit physician release boundary
-- CI, coverage, CodeQL, and contributor governance
+- production-build Playwright proof that Publisher remains blocked until physician approval
+- browser assertion that autonomous releases remain zero after approval
+- dependency audit, regression suites, coverage, TypeScript, production build, retained browser evidence, and CodeQL
 - [Live product](https://agihackathon26dermbrief.vercel.app)
 
 ### [DermPathOS / BiopsyGraph](https://github.com/patricktran1/dermpathos-biopsygraph)
@@ -25,16 +27,20 @@ A graph-based biopsy follow-up safety net designed to surface missing patient no
 
 ### [Clinical Evidence Guardrails](https://github.com/patricktran1/clinical-ai-tools)
 
-A dependency-free TypeScript library and service boundary for source-grounded clinical evidence workflows.
+A dependency-free TypeScript library and operational service boundary for source-grounded clinical evidence workflows.
 
 - curated source and journal matching
 - exact source-quote verification and claim-to-evidence mapping
 - configurable certainty policies and source-boundary checks
 - multi-tenant Fetch API gateway
-- tenant and route-isolated in-memory and atomic Redis rate limits
+- tenant-and-route-isolated in-memory and atomic Redis rate limits
 - W3C trace propagation and OpenTelemetry-compatible observability
-- packed-package consumer testing, CI, coverage, and CodeQL
-- [Contributor issues](https://github.com/patricktran1/clinical-ai-tools/issues)
+- deterministic 480-request load harness across twelve isolated tenants
+- fail-closed matrix for authentication, directory, limiter, payload, timeout, and upstream failures
+- runnable Node 22 reference gateway with an HTTP-to-Fetch bridge and cross-tenant isolation self-test
+- packed-package consumer validation and provenance-enabled npm release workflow
+- dependency audit, coverage, retained operational artifacts, CI, and CodeQL
+- three claimable [external contributor sprint issues](https://github.com/patricktran1/clinical-ai-tools/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
 ### [AdrianOS](https://github.com/patricktran1/AdrianOS)
 
@@ -64,16 +70,16 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 
 ## Visible quality matrix
 
-| Repository | Deterministic tests | Coverage | Production or package build | Browser or consumer validation | CodeQL |
+| Repository | Deterministic tests | Coverage | Production or package build | Browser, consumer, or operational validation | CodeQL |
 |---|---:|---:|---:|---:|---:|
-| DermBrief EvidenceOps | ✓ | ✓ | ✓ | ✓ | ✓ |
+| DermBrief EvidenceOps | ✓ | ✓ | ✓ | physician-release Playwright flow | ✓ |
 | DermPathOS / BiopsyGraph | ✓ | ✓ | ✓ |  | ✓ |
-| Clinical Evidence Guardrails | ✓ | ✓ | ✓ | packed-package consumer | ✓ |
+| Clinical Evidence Guardrails | ✓ | ✓ | ✓ | packed consumer + load + fault + Node service | ✓ |
 | AdrianOS | ✓ | ✓ | ✓ | full Playwright matrix | ✓ |
-| Cantina | ✓ | ✓ | ✓ | critical procurement flow | ✓ |
-| Vital Passport | ✓ | ✓ | ✓ |  | ✓ |
-| TagOnce | ✓ | ✓ | ✓ |  | ✓ |
-| AION EHR launch site | ✓ | ✓ | syntax-validated deploy surface |  | ✓ |
+| Cantina | ✓ | ✓ | ✓ | production procurement flow | ✓ |
+| Vital Passport | ✓ | ✓ | ✓ | patient-profile regression boundary | ✓ |
+| TagOnce | ✓ | ✓ | ✓ | lint + package production build | ✓ |
+| AION EHR launch site | ✓ | ✓ | syntax-validated deploy surface | waitlist contract | ✓ |
 
 ## Current focus
 
@@ -81,8 +87,9 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 - evidence provenance and auditability
 - dermatology workflow automation
 - human-in-the-loop agent systems
-- multi-tenant API and observability boundaries
+- multi-tenant API, rate-limit, and observability boundaries
 - deterministic financial and workflow controls
+- deployable reference services and operational failure drills
 - physician-designed health software
 
 ## Engineering principles
@@ -93,12 +100,20 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 4. Clinical workflows should fail closed when evidence is missing.
 5. Financial writes must be balanced, idempotent, and outside model control.
 6. Tenant identity and authorization boundaries must be explicit.
-7. Tests should encode domain risk, not only interface behavior.
-8. Deployable and distributable artifacts should be tested as consumers receive them.
+7. Dependency outages must produce deterministic, traceable failure contracts.
+8. Tests should encode domain risk, not only interface behavior.
+9. Deployable and distributable artifacts should be tested as consumers receive them.
+10. Performance evidence should distinguish deterministic isolation checks from production SLO claims.
 
 ## Collaboration
 
-Focused contributions are welcome in [Clinical Evidence Guardrails](https://github.com/patricktran1/clinical-ai-tools/issues) and [DermBrief EvidenceOps](https://github.com/patricktran1/agihackathon26dermbrief/issues). Look for issues labeled `good first issue` or `help wanted`. Contributions should include tests, failure cases, and an explicit statement of safety or system boundaries.
+Clinical Evidence Guardrails has three independent contributor tracks with explicit acceptance criteria:
+
+- [Track 1: property-oriented journal normalization tests](https://github.com/patricktran1/clinical-ai-tools/issues/7)
+- [Track 2: configurable source-boundary examples](https://github.com/patricktran1/clinical-ai-tools/issues/8)
+- [Track 3: copyable Redis adapter and integration fixture](https://github.com/patricktran1/clinical-ai-tools/issues/19)
+
+The repository includes first-time contributor onboarding, governance, review evidence requirements, and a documented contributor ladder. The target is three merged pull requests from three distinct external contributors. Maintainer-authored commits and automated accounts do not count.
 
 ## Connect
 
