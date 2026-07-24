@@ -27,11 +27,14 @@ A graph-based biopsy follow-up safety net designed to surface missing patient no
 
 ### [Clinical Evidence Guardrails](https://github.com/patricktran1/clinical-ai-tools)
 
-A dependency-free TypeScript library and operational service boundary for source-grounded clinical evidence workflows.
+A dependency-free TypeScript library, installed CLI, and operational service boundary for source-grounded clinical evidence workflows.
 
 - curated source and journal matching
 - exact source-quote verification and claim-to-evidence mapping
 - configurable certainty policies and source-boundary checks
+- packaged `clinical-evidence-check` CLI with machine-readable output and automation exit codes
+- subprocess tests for passing cards, fabricated quotes, unsafe certainty, malformed input, help, and version
+- clean consumer test that installs the tarball and executes the binary from `node_modules/.bin`
 - multi-tenant Fetch API gateway
 - tenant-and-route-isolated in-memory and atomic Redis rate limits
 - W3C trace propagation and OpenTelemetry-compatible observability
@@ -74,7 +77,7 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 |---|---:|---:|---:|---:|---:|
 | DermBrief EvidenceOps | ✓ | ✓ | ✓ | physician-release Playwright flow | ✓ |
 | DermPathOS / BiopsyGraph | ✓ | ✓ | ✓ |  | ✓ |
-| Clinical Evidence Guardrails | ✓ | ✓ | ✓ | packed consumer + load + fault + Node service | ✓ |
+| Clinical Evidence Guardrails | ✓ | ✓ | ✓ | packed API + installed CLI + load + fault + Node service | ✓ |
 | AdrianOS | ✓ | ✓ | ✓ | full Playwright matrix | ✓ |
 | Cantina | ✓ | ✓ | ✓ | production procurement flow | ✓ |
 | Vital Passport | ✓ | ✓ | ✓ | patient-profile regression boundary | ✓ |
@@ -90,6 +93,7 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 - multi-tenant API, rate-limit, and observability boundaries
 - deterministic financial and workflow controls
 - deployable reference services and operational failure drills
+- adoption-ready packages and command-line tooling
 - physician-designed health software
 
 ## Engineering principles
@@ -103,7 +107,8 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 7. Dependency outages must produce deterministic, traceable failure contracts.
 8. Tests should encode domain risk, not only interface behavior.
 9. Deployable and distributable artifacts should be tested as consumers receive them.
-10. Performance evidence should distinguish deterministic isolation checks from production SLO claims.
+10. Command-line tools should expose stable output and exit contracts without leaking source content.
+11. Performance evidence should distinguish deterministic isolation checks from production SLO claims.
 
 ## Collaboration
 
