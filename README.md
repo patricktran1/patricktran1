@@ -29,12 +29,14 @@ A physician-gated evidence workflow that scans curated dermatology journals, pri
 
 A graph-based biopsy follow-up safety net designed to surface missing patient notification, treatment scheduling, and physician-review steps.
 
-- deterministic melanoma, SCC, BCC, and benign-result triage fixtures
+- deterministic melanoma, SCC, BCC, benign, unrecognized-diagnosis, notification-gap, scheduling-gap, and priority-order fixtures
 - Neo4j relationship model for closed-loop follow-up
 - production-build Playwright flow that surfaces an urgent melanoma gap, inspects the graph path, completes the task, and verifies dashboard persistence
 - separate CI-only Nitro Node artifact so browser testing exercises a runnable production server
-- high-severity dependency audit with patched Daytona and OpenTelemetry dependency lines
-- CI, coverage, TypeScript validation, retained browser evidence, CodeQL, and Dependabot
+- reproducible `npm ci` across CI and Playwright from a committed Node 22 lockfile
+- enforced clinical-logic coverage floors of 100% lines, 100% functions, and 90% branches
+- blocking pull-request dependency review with retained evidence, moderate-or-higher audit enforcement, npm-registry provenance, SHA-512 integrity, and exact license policy
+- CodeQL plus weekly OpenSSF Scorecard publication through OIDC, retained SARIF, and code-scanning upload
 
 ### [Clinical Evidence Guardrails](https://github.com/patricktran1/clinical-ai-tools)
 
@@ -102,7 +104,7 @@ A public product site with a persistent Neon waitlist endpoint, extracted determ
 | Repository | Deterministic tests | Coverage | Production or package build | Browser, consumer, or operational validation | CodeQL | Supply-chain controls |
 |---|---:|---:|---:|---:|---:|---|
 | DermBrief EvidenceOps | ✓ | enforced 65/70/75 | ✓ | physician release + audit integrity | ✓ | dependency review + OpenSSF |
-| DermPathOS / BiopsyGraph | ✓ | ✓ | ✓ | closed-loop melanoma follow-up | ✓ | audit + Dependabot |
+| DermPathOS / BiopsyGraph | ✓ | enforced 100/100/90 | ✓ | closed-loop melanoma follow-up | ✓ | dependency review + OpenSSF |
 | Clinical Evidence Guardrails | ✓ | enforced 90/90/85 | ✓ | packed API + CLI + load + fault + container | ✓ | dependency review + SBOM + OpenSSF |
 | AdrianOS | ✓ | ✓ | ✓ | full Playwright matrix | ✓ | Dependabot |
 | HealthThread | ✓ | ✓ | ✓ | normalized event + repository hygiene gates | ✓ | audit + Dependabot |
@@ -123,7 +125,7 @@ Across the strongest repositories, automation is designed as executable evidence
 - production or package builds tested as users receive them
 - retained browser, consumer, dependency, audit, SBOM, and operational artifacts
 - CodeQL and dependency maintenance across maintained products
-- blocking dependency-change review on the open-source library and DermBrief
+- blocking dependency-change review on Clinical Evidence Guardrails, DermBrief, and DermPathOS
 - weekly OpenSSF analysis on the repositories with the deepest public supply-chain surface
 
 ## Current focus
